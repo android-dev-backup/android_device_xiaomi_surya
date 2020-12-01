@@ -9,8 +9,8 @@ $(call inherit-product, device/xiaomi/surya/device.mk)
 # Inherit some
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Nitrogen stuff.
-$(call inherit-product, vendor/lineage/config/common.mk)
+# Inherit some common Lineage stuff.
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
