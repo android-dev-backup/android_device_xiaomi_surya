@@ -126,7 +126,7 @@ void vendor_load_properties() {
         set_ro_build_prop(source, "fingerprint", fp);
         set_ro_product_prop(source, "brand", "POCO");
         set_ro_product_prop(source, "device", "surya");
-        set_ro_product_prop(source, "model", "M2007J20CG");
+        set_ro_product_prop(source, "model", "Poco X3");
     }
     property_override("ro.build.fingerprint", fp);
     property_override("ro.bootimage.build.fingerprint", fp);
