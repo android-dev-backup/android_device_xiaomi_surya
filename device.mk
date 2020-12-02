@@ -52,7 +52,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    SnapdragonCamera \
+    SnapdragonGallery
 
 # Charger
 PRODUCT_PACKAGES += \
