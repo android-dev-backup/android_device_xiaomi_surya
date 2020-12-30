@@ -6,3 +6,6 @@ ro.sf.lcd_density=440
 
 #system props for the MM modules
 vendor.mm.enable.qcom_parser=131071983
+
+#Disable VSync for CPU rendered apps
+debug.cpurend.vsync=false
