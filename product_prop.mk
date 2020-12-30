@@ -42,6 +42,12 @@ PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.latch_unsignaled=1 \
     debug.sf.disable_backpressure=1
 
+
+# Charger Mode
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true
+
+
 # Enable inband ringing
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.bluetooth.disableinbandringing=false
