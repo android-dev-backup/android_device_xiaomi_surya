@@ -165,6 +165,10 @@ TARGET_USES_MKE2FS := true
 include device/qcom/sepolicy/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    system/lib/libcameraservice.so|libmedia_jni_shim.so
+
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
