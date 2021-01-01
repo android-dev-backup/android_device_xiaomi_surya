@@ -50,8 +50,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths_wcd9375.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/mixer_paths_wcd9375.xml
 
 # Camera
-PRODUCT_PACKAGES += \
-    SnapdragonCamera 
+#PRODUCT_PACKAGES += \
+#    SnapdragonCamera 
+
+# GoogleCamera
+$(call inherit-product, packages/apps/GoogleCamera/config.mk)
 
 # Charger
 PRODUCT_PACKAGES += \
