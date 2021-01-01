@@ -51,10 +51,10 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 #PRODUCT_PACKAGES += \
-#    SnapdragonCamera 
+#    Gcam
 
 # GoogleCamera
-$(call inherit-product, packages/apps/GoogleCamera/config.mk)
+#$(call inherit-product, packages/apps/GoogleCamera/config.mk)
 
 # Charger
 PRODUCT_PACKAGES += \
