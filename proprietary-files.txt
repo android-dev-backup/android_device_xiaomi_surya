@@ -55,6 +55,38 @@ vendor/lib64/libsdmcore.so:product/vendor_overlay/29/lib64/libsdmcore.so|fd6cf7a
 vendor/lib/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib/soundfx/libvolumelistener.so|672ad577dab5221bdd7f840d87313e3483aebde0
 vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib64/soundfx/libvolumelistener.so|c25cc5e8c3622eb97d3bb4814aeb301c01d8b046
 
+# Media - from surya QKQ1.200512.002-V12.0.4.0.QJGMIXM
+lib/libFileMux.so
+lib/libmmosal.so
+lib/libmmparser_lite.so
+lib/libmmrtpdecoder.so
+lib/libmmrtpencoder.so
+lib/libOmxMux.so
+lib64/libFileMux.so
+lib64/libmmosal.so
+lib64/libmmparser_lite.so
+lib64/libmmrtpdecoder.so
+lib64/libmmrtpencoder.so
+lib64/libOmxMux.so
+
+lib64/libwfdclient.so
+lib64/libwfdcommonutils.so
+lib64/libwfdconfigutils.so
+lib64/libwfdmminterface.so
+lib64/libwfdmmsink.so
+lib64/libwfdnative.so
+lib64/libwfdrtsp.so
+lib64/libwfdsinksm.so
+lib64/libwfdsm.so
+lib64/libwfduibcinterface.so
+lib64/libwfduibcsink.so
+lib64/libwfduibcsinkinterface.so
+lib64/libwfduibcsrc.so
+lib64/libwfduibcsrcinterface.so
+-priv-app/WfdService/WfdService.apk
+product/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
+product/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
+
 # Perf - from surya QKQ1.200512.002-V12.0.4.0.QJGMIXM
 product/lib64/vendor.qti.hardware.iop@2.0.so
 product/lib64/vendor.qti.hardware.perf@2.0.so
