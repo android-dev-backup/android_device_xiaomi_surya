@@ -73,6 +73,10 @@ public final class ThermalUtils {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putString(THERMAL_SERVICE, "false").apply();
     }
 
+    protected static boolean isServiceEnabled(Context context) {
+        return Boolean.valueOf(PreferenceManager.getDefaultSharedPreferences(context).getString(THERMAL_SERVICE, "false"));
+    }
+
     private void writeValue(String profiles) {
         mSharedPrefs.edit().putString(THERMAL_CONTROL, profiles).apply();
     }
