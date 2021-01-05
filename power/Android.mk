@@ -25,8 +25,7 @@ LOCAL_SRC_FILES := \
     list.c \
     hint-data.c \
     Power.cpp \
-    main.cpp \
-    power-6150.c
+    main.cpp
 
 LOCAL_CFLAGS += -Wall -Wextra -Werror
 
