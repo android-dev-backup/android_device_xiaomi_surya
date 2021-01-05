@@ -1,4 +1,5 @@
-/* Copyright (c) 2016, The Linux Foundation. All rights reserved.
+/*
+ * Copyright (c) 2020, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -24,25 +25,29 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
  */
 
-#ifndef __POWERHINTPARSER__
-#define __POWERHINTPARSER__
+#include "Power.h"
 
-#define POWERHINT_XML      "/vendor/etc/powerhint.xml"
-#define MAX_HINT 6
-#define MAX_PARAM 30
+#include <android-base/logging.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
 
-typedef struct perflock_param_t {
-    int type;
-    int numParams;
-    int paramList[MAX_PARAM];//static limit on number of hints - 15
-}perflock_param_t;
+using aidl::android::hardware::power::impl::Power;
 
-static perflock_param_t powerhint[MAX_HINT];
+int main() {
+    ABinderProcess_setThreadPoolMaxThreadCount(0);
+    std::shared_ptr<Power> vib = ndk::SharedRefBase::make<Power>();
+    const std::string instance = std::string() + Power::descriptor + "/default";
+    LOG(INFO) << "Instance " << instance;
+    if (vib) {
+        binder_status_t status = AServiceManager_addService(vib->asBinder().get(), instance.c_str());
+        LOG(INFO) << "Status " << status;
+        if (status != STATUS_OK) {
+            LOG(ERROR) << "Could not register" << instance;
+        }
+    }
 
-int parsePowerhintXML();
-int *getPowerhint(int, int*);
-
-#endif /* __POWERHINTPARSER__ */
+    ABinderProcess_joinThreadPool();
+    return 1;  // should not reach
+}
