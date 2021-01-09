@@ -156,9 +156,6 @@ product/lib64/vendor.qti.hardware.perf@2.0.so
 product/lib/vendor.qti.hardware.iop@2.0.so
 product/lib/vendor.qti.hardware.perf@2.0.so
 
-# Camera
-lib/libcameraservice.so|5f264c00f4e8b5b1af42b53d4d42bf317ab73eed
-
 # Telephony
 etc/permissions/privapp-permissions-qti.xml
 etc/permissions/qti_libpermissions.xml
