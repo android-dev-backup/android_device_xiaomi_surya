@@ -20,7 +20,6 @@ import android.content.om.IOverlayManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.widget.Toast;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -34,12 +33,13 @@ public class DevicePreferenceFragment extends PreferenceFragment {
 
     private static final String KEY_MIN_REFRESH_RATE = "pref_min_refresh_rate";
     private static final String KEY_PILL_STYLE_NOTCH = "pref_pill_style_notch";
+    public static final String KEY_FPS_INFO = "fps_info";
 
     private IOverlayManager mOverlayService;
 
     private ListPreference mPrefMinRefreshRate;
     private SwitchPreference mPrefPillStyleNotch;
-
+    private static SwitchPreference mFpsInfo;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -51,10 +51,14 @@ public class DevicePreferenceFragment extends PreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.device_prefs);
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         mPrefMinRefreshRate = (ListPreference) findPreference(KEY_MIN_REFRESH_RATE);
         mPrefMinRefreshRate.setOnPreferenceChangeListener(PrefListener);
         mPrefPillStyleNotch = (SwitchPreference) findPreference(KEY_PILL_STYLE_NOTCH);
         mPrefPillStyleNotch.setOnPreferenceChangeListener(PrefListener);
+        mFpsInfo = (SwitchPreference) findPreference(KEY_FPS_INFO);
+        mFpsInfo.setChecked(prefs.getBoolean(KEY_FPS_INFO, false));
+        mFpsInfo.setOnPreferenceChangeListener(PrefListener);
     }
 
     @Override
@@ -92,6 +96,15 @@ public class DevicePreferenceFragment extends PreferenceFragment {
                         }
                         Toast.makeText(getContext(),
                                 R.string.msg_device_need_restart, Toast.LENGTH_SHORT).show();
+                        }
+                    } else if (preference == mFpsInfo) {
+                        boolean enabled = (Boolean) newValue;
+                        Intent fpsinfo = new Intent(this.getContext(),
+                        org.lineageos.settings.fps.FPSInfoService.class);
+                    if (enabled) {
+                        this.getContext().startService(fpsinfo);
+                    } else {
+                        this.getContext().stopService(fpsinfo);
                     }
                     return true;
                 }

@@ -71,4 +71,8 @@
     <string name="thermal_camera">Camera</string>
     <string name="thermal_dialer">Dialer</string>
     <string name="thermal_gaming">Gaming</string>
+
+    <!-- FPS info -->
+    <string name="fps_info_title">FPS info</string>
+    <string name="fps_info_summary">Show overlay with current frames per second</string>
 </resources>
