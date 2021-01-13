@@ -26,9 +26,4 @@
         android:key="pref_pill_style_notch"
         android:title="@string/device_pill_style_notch"/>
         
-     <SwitchPreference
-        android:key="fps_info"
-        android:title="@string/fps_info_title"
-        android:summary="@string/fps_info_summary"
-        android:persistent="true" />
 </PreferenceScreen>
